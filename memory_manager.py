@@ -1,7 +1,7 @@
 import os
 from pymongo import MongoClient
 from common import client, today, model, yesterday, currTime
-from pinecone.grpc import PineconeGRPC as Pinecone
+from pinecone import Pinecone
 import json
 
 pinecone = Pinecone(os.getenv("PINECONE_API_KEY"))
@@ -205,3 +205,4 @@ class MemoryManager:
             return
         summaries = self.summarize(chats_results)
         self.delete_by_date(date)
+
